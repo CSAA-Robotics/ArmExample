@@ -31,9 +31,10 @@ public class ArmSubsystem extends SubsystemBase {
         // This method will be called once per scheduler run during simulation
     }
 
-    public Command moveArm( int angleRad ) {
+    public Command moveArm( double angleRad ) {
         return runOnce(
             () -> {
+                io.updateInputs(inputs);
                 if ( Math.abs(angleRad - inputs.armPositionRads) < 0.1 ) {
                      if ( Math.abs(angleRad - inputs.armPositionRads ) < 0.01 ) {
                         this.io.setPositionControl(angleRad);
@@ -43,6 +44,14 @@ public class ArmSubsystem extends SubsystemBase {
                 } else {
                     this.io.setMotionControl(angleRad);
                 }
+            }
+        );
+    }
+
+    public Command zeroEncoder() {
+        return runOnce(
+            () -> {
+                inputs.armPositionRads = 0; 
             }
         );
     }
