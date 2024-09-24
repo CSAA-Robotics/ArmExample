@@ -11,21 +11,22 @@ import com.ctre.phoenix6.controls.PositionVoltage;
 import com.ctre.phoenix6.hardware.CANcoder;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.AbsoluteSensorRangeValue;
+import com.ctre.phoenix6.signals.FeedbackSensorSourceValue;
 import com.ctre.phoenix6.signals.GravityTypeValue;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 import com.ctre.phoenix6.signals.SensorDirectionValue;
 
 import edu.wpi.first.math.util.Units;
-import frc.robot.Constants.ArmConstants;
+import frc.robot.subsystems.Arm.ArmConstants;
 
 public class ArmReal implements ArmIO {
-    // Decleration 
+    // Motor and Encoder Decleration
     public final TalonFX masterMotor; 
     public final TalonFX followerMotor; 
     public final CANcoder armEncoder; 
 
-    // Configuration
+    // Motor and Encoder Configuration Settings
     private final TalonFXConfiguration armConfig; 
     private final CANcoderConfiguration encoderConfig; 
 
@@ -37,111 +38,30 @@ public class ArmReal implements ArmIO {
     private final PositionVoltage pPos;       // Holding the Arm in Place
     private final MotionMagicVoltage pMnPos;  // Moving the Arm
     
-    // Constructor 
+    /**
+     * Constructor for Defining and Initializing Motors and other items responsible for the Arm
+     */
     public ArmReal() {
-        // Motor Defintions
-        masterMotor = new TalonFX( ArmConstants.kMasterID );
-        followerMotor = new TalonFX( ArmConstants.kFollowerID );
-        // Encoder Definition
-        armEncoder = new CANcoder( ArmConstants.kEncoder );
-        // Motor Configuration 
-        armConfig = new TalonFXConfiguration(); 
-        armConfig.CurrentLimits.SupplyCurrentLimit = 50; // Check Breaker Panel 
-        armConfig.CurrentLimits.SupplyCurrentLimitEnable = true; 
-        armConfig.ClosedLoopRamps.VoltageClosedLoopRampPeriod = 0.5; 
-        armConfig.OpenLoopRamps.VoltageOpenLoopRampPeriod = 0.5; 
-        armConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake; 
-        armConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;  // Sets direction to be Positive
+        // Motor and Encoder Definition
+        masterMotor = new TalonFX( ArmConstants.ARM_MASTER_ID ); 
+        followerMotor = new TalonFX( ArmConstants.ARM_FOLLOWER_ID ); 
+        armEncoder = new CANcoder( ArmConstants.ARM_ENCODER_ID ); 
+        // Setting the Follower Motor to follow the Master Motor 
+        followerMotor.setControl( new Follower( ArmConstants.ARM_MASTER_ID, true ) ); 
 
-        // Encoder Configuration
-        encoderConfig = new CANcoderConfiguration(); 
-        encoderConfig.MagnetSensor.AbsoluteSensorRange = AbsoluteSensorRangeValue.Signed_PlusMinusHalf; 
-        encoderConfig.MagnetSensor.SensorDirection = SensorDirectionValue.CounterClockwise_Positive; 
+        // Arm Encoder Configuration Settings Definition
+        armConfig = new TalonFXConfiguration();
+        armConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;   // Clockwise position as Positive
+        armConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;  // Set to Brake Mode
+        // Configure the feedback sensor to use the CANcoder
+        armConfig.Feedback.FeedbackSensorSource = FeedbackSensorSourceValue.SyncCANcoder;
+        armConfig.Feedback.FeedbackRemoteSensorID = ArmConstants.ARM_ENCODER_ID;
 
-        // Applying Configuration to Motors
-        masterMotor.getConfigurator().apply( armConfig );
-        followerMotor.getConfigurator().apply( armConfig );
+        // Applying Motor Configuration to the Motors
+        masterMotor.getConfigurator().apply( armConfig ); // For Master Motor
+        armConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive; 
+        followerMotor.getConfigurator().apply( armConfig ); // For Follower Motor
 
-        // Applying Configuration to Encoder
-        armEncoder.getConfigurator().apply( encoderConfig );
 
-        // Creating a Control Group 
-        followerMotor.setControl( new Follower( masterMotor.getDeviceID(), true ) );
-
-        // Status Signal Defintions
-        armPositionRotation = masterMotor.getPosition(); 
-        armEncoderPositionRotation = armEncoder.getPosition(); 
-
-        /* Speed up signals to an appropriate rate */
-        BaseStatusSignal.setUpdateFrequencyForAll(
-            100,
-            armPositionRotation, 
-            armEncoderPositionRotation
-        );
-
-        // PID Controller Defintions
-        pPos = new PositionVoltage(
-            0, 
-            0, 
-            false, 
-            0, 
-            0, 
-            false, 
-            false, 
-            false
-        );
-        pMnPos = new MotionMagicVoltage(
-            0, 
-            false, 
-            0, 
-            1, 
-            false, 
-            false, 
-            false
-        );
-        // Modifying PID Values 
-
-        // Hold the ARM (PID VALUES)
-        armConfig.Slot0.GravityType = GravityTypeValue.Arm_Cosine;
-        armConfig.Slot0.kG = 0.35; // to hold the arm weight
-        armConfig.Slot0.kP = 60; // 100; // adjust PID
-        armConfig.Slot0.kI = 0;
-        armConfig.Slot0.kD = 0.02;
-        armConfig.Slot0.kS = 0;
-        armConfig.Slot0.kV = 0;
-        armConfig.Slot0.kA = 0;
-
-        // Move the arm (PID VALUES)
-        armConfig.Slot1.GravityType = GravityTypeValue.Arm_Cosine;
-        armConfig.Slot1.kG = 0.35; // to hold the arm weight
-        armConfig.Slot1.kP = 60; // 100; // adjust PID
-        armConfig.Slot1.kI = 0;
-        armConfig.Slot1.kD = 0;
-        armConfig.Slot1.kS = 0;
-        armConfig.Slot1.kV = 8; // 8.3; // move velocity
-        armConfig.Slot1.kA = 0.2; // 0.2; // move accerleration
-    }
-
-    // Instance (ArmIO) Functions Defintion
-
-    public void updateInputs( ArmIOInputs inputs ) {
-        inputs.armPositionRads = Units.rotationsToRadians( armPositionRotation.getValue() );
-        inputs.armEncoderPositionRads = Units.rotationsToRadians( armEncoderPositionRotation.getValue() );
-        return; 
-    }
-
-    public void stop() {
-        masterMotor.setControl( new NeutralOut() );
-        return; 
-    }
-
-    public void setPositionControl( double positionRotations ) {
-        masterMotor.setControl( pPos.withPosition( positionRotations ) );
-        return; 
-    }
-
-    public void setMotionControl( double positionRotations ) {
-        masterMotor.setControl( pMnPos.withPosition( positionRotations ) );
-        return;  
     }
 }
