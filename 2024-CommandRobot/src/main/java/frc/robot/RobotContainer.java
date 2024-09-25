@@ -4,13 +4,11 @@
 
 package frc.robot;
 
-import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Arm.ArmReal;
 import frc.robot.subsystems.Arm.ArmSubsystem;
-import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -28,7 +26,7 @@ public class RobotContainer {
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
+      new CommandXboxController(0);
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -52,7 +50,7 @@ public class RobotContainer {
         .onTrue(new ExampleCommand(m_exampleSubsystem));
 
     // Binding Definition
-    m_driverController.a().whileTrue( m_armSubsystem.moveArm( Units.degreesToRadians(30) ) ).whileFalse( m_armSubsystem.moveArm( 0 ) );
+    // m_driverController.a().whileTrue( m_armSubsystem.moveArm( Units.degreesToRadians(30) ) ).whileFalse( m_armSubsystem.moveArm( 0 ) );
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
