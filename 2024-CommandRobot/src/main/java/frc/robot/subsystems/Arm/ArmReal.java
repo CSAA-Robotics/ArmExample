@@ -1,3 +1,8 @@
+/**
+ * @file ArmReal.java
+ * @brief All the devices and their methods are defined here
+ */
+
 package frc.robot.subsystems.Arm;
 
 import com.ctre.phoenix6.configs.CANcoderConfiguration;
