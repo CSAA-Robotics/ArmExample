@@ -1,0 +1,61 @@
+\doxysection{frc.\+robot.\+subsystems.\+Arm.\+Arm\+Subsystem Class Reference}
+\hypertarget{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_subsystem}{}\label{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_subsystem}\index{frc.robot.subsystems.Arm.ArmSubsystem@{frc.robot.subsystems.Arm.ArmSubsystem}}
+
+
+The subsystem class that is responsible for the \doxylink{namespacefrc_1_1robot_1_1subsystems_1_1_arm}{Arm}.  
+
+
+Inheritance diagram for frc.\+robot.\+subsystems.\+Arm.\+Arm\+Subsystem\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_subsystem}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_subsystem_ac1116645120c56113749813371b9e275}{Arm\+Subsystem}} (\mbox{\hyperlink{interfacefrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_i_o}{Arm\+IO}} io)
+\begin{DoxyCompactList}\small\item\em Associates the \doxylink{namespacefrc_1_1robot_1_1subsystems_1_1_arm}{Arm} Input/\+Output object with the \doxylink{namespacefrc_1_1robot_1_1subsystems_1_1_arm}{Arm} Subsystem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_subsystem_a66ce962040807072f000c219dfd83160}{periodic}} ()
+\begin{DoxyCompactList}\small\item\em Method that will be called once per scheduler run. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The subsystem class that is responsible for the \doxylink{namespacefrc_1_1robot_1_1subsystems_1_1_arm}{Arm}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_subsystem_ac1116645120c56113749813371b9e275}\index{frc.robot.subsystems.Arm.ArmSubsystem@{frc.robot.subsystems.Arm.ArmSubsystem}!ArmSubsystem@{ArmSubsystem}}
+\index{ArmSubsystem@{ArmSubsystem}!frc.robot.subsystems.Arm.ArmSubsystem@{frc.robot.subsystems.Arm.ArmSubsystem}}
+\doxysubsubsection{\texorpdfstring{ArmSubsystem()}{ArmSubsystem()}}
+{\footnotesize\ttfamily \label{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_subsystem_ac1116645120c56113749813371b9e275} 
+frc.\+robot.\+subsystems.\+Arm.\+Arm\+Subsystem.\+Arm\+Subsystem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfacefrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_i_o}{Arm\+IO}}}]{io}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Associates the \doxylink{namespacefrc_1_1robot_1_1subsystems_1_1_arm}{Arm} Input/\+Output object with the \doxylink{namespacefrc_1_1robot_1_1subsystems_1_1_arm}{Arm} Subsystem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em io} & The \doxylink{namespacefrc_1_1robot_1_1subsystems_1_1_arm}{Arm} INPUT/\+OUTPUT object \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_subsystem_a66ce962040807072f000c219dfd83160}\index{frc.robot.subsystems.Arm.ArmSubsystem@{frc.robot.subsystems.Arm.ArmSubsystem}!periodic@{periodic}}
+\index{periodic@{periodic}!frc.robot.subsystems.Arm.ArmSubsystem@{frc.robot.subsystems.Arm.ArmSubsystem}}
+\doxysubsubsection{\texorpdfstring{periodic()}{periodic()}}
+{\footnotesize\ttfamily \label{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_subsystem_a66ce962040807072f000c219dfd83160} 
+void frc.\+robot.\+subsystems.\+Arm.\+Arm\+Subsystem.\+periodic (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method that will be called once per scheduler run. 
+
+If the difference between the desired and current is\+: Large ( diff \texorpdfstring{$>$}{>} first\+\_\+threshold )\+: Uses Motion\+Magic Voltage Small ( diff \texorpdfstring{$<$}{<}= first\+\_\+threshold )\+: Checks Difference with new Threshold
+
+If the difference type is Small, it considers the difference again\+: Large ( diff \texorpdfstring{$>$}{>} second\+\_\+threshold )\+: Uses Position Voltage Small ( diff \texorpdfstring{$<$}{<}= second\+\_\+threshold )\+: Motors Stop
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/frc/robot/subsystems/\+Arm/\mbox{\hyperlink{_arm_subsystem_8java}{Arm\+Subsystem.\+java}}\end{DoxyCompactItemize}

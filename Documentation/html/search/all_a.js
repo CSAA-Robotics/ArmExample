@@ -1,8 +1,0 @@
-var searchData=
-[
-  ['setmotioncontrol_0',['setMotionControl',['../interfacefrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_i_o.html#aaf7cc9ddebeb695d69cfc9db6f8c2503',1,'frc.robot.subsystems.Arm.ArmIO.setMotionControl()'],['../classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real.html#ac9b39c21e7ebe584007cbad87d482a4a',1,'frc.robot.subsystems.Arm.ArmReal.setMotionControl()']]],
-  ['setpositioncontrol_1',['setPositionControl',['../interfacefrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_i_o.html#adf1427c6566fadd117bccf7ea426271d',1,'frc.robot.subsystems.Arm.ArmIO.setPositionControl()'],['../classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real.html#abeca75e6c1ebee1b3453952023640a55',1,'frc.robot.subsystems.Arm.ArmReal.setPositionControl()']]],
-  ['simulationinit_2',['simulationInit',['../classfrc_1_1robot_1_1_robot.html#a38c761bcb4edd9b69c6f6fafd6370b10',1,'frc::robot::Robot']]],
-  ['simulationperiodic_3',['simulationPeriodic',['../classfrc_1_1robot_1_1_robot.html#a1aee53883dc51a53cd1762b0e02fba61',1,'frc.robot.Robot.simulationPeriodic()'],['../classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_subsystem.html#a6accde8302dadb5bfc5087ddc855b6ba',1,'frc.robot.subsystems.Arm.ArmSubsystem.simulationPeriodic()'],['../classfrc_1_1robot_1_1subsystems_1_1_example_subsystem.html#ab1b5d8983a8be3b6a19ace7951934284',1,'frc.robot.subsystems.ExampleSubsystem.simulationPeriodic()']]],
-  ['stop_4',['stop',['../interfacefrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_i_o.html#ab571ab01939c75fc708ffa9504b0e902',1,'frc.robot.subsystems.Arm.ArmIO.stop()'],['../classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real.html#aa8d50cdde822c9be7627e584661f11db',1,'frc.robot.subsystems.Arm.ArmReal.stop()']]]
-];

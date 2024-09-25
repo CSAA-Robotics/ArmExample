@@ -1,0 +1,147 @@
+\doxysection{frc.\+robot.\+subsystems.\+Arm.\+Arm\+Real Class Reference}
+\hypertarget{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real}{}\label{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real}\index{frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}}
+
+
+This class is where all the devices and defined and configured and all the necessary functions needed to maintain/run the \doxylink{namespacefrc_1_1robot_1_1subsystems_1_1_arm}{Arm} Subsystem Class.  
+
+
+Inheritance diagram for frc.\+robot.\+subsystems.\+Arm.\+Arm\+Real\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_a90e3727aa9365baabd521a709fc0996d}{Arm\+Real}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for Defining and Initializing Motors and other items responsible for the \doxylink{namespacefrc_1_1robot_1_1subsystems_1_1_arm}{Arm}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_aa8d50cdde822c9be7627e584661f11db}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Sets the following Motors to a Netural Mode, which stops all the motors from running. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_abeca75e6c1ebee1b3453952023640a55}{set\+Position\+Control}} (double position\+Rotations)
+\begin{DoxyCompactList}\small\item\em This method uses a simple position control to move the arm to a specific position (in rotations). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_ac9b39c21e7ebe584007cbad87d482a4a}{set\+Motion\+Control}} (double position\+Rotations)
+\begin{DoxyCompactList}\small\item\em This method uses Motion Magic to move the arm smoothly to a specific position, considering the velocity and acceleration limits defined in the configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interfacefrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_i_o}{frc.\+robot.\+subsystems.\+Arm.\+Arm\+IO}}}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Talon\+FX \mbox{\hyperlink{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_a624537066e53dafb47f6ec25b776b294}{master\+Motor}}
+\begin{DoxyCompactList}\small\item\em Motor Decleration and Defintion Example -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---.java. \end{DoxyCompactList}\item 
+final Talon\+FX \mbox{\hyperlink{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_af8520851fca3d291debe8504dd8c02fa}{follower\+Motor}}
+\item 
+final CANcoder \mbox{\hyperlink{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_aab306ffc9856ebb72cbbaa44ed3a3e7d}{arm\+Encoder}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is where all the devices and defined and configured and all the necessary functions needed to maintain/run the \doxylink{namespacefrc_1_1robot_1_1subsystems_1_1_arm}{Arm} Subsystem Class. 
+
+In essense, it contains all the functions/methods for the \doxylink{namespacefrc_1_1robot_1_1subsystems_1_1_arm}{Arm} Subsystem class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_a90e3727aa9365baabd521a709fc0996d}\index{frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}!ArmReal@{ArmReal}}
+\index{ArmReal@{ArmReal}!frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}}
+\doxysubsubsection{\texorpdfstring{ArmReal()}{ArmReal()}}
+{\footnotesize\ttfamily \label{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_a90e3727aa9365baabd521a709fc0996d} 
+frc.\+robot.\+subsystems.\+Arm.\+Arm\+Real.\+Arm\+Real (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for Defining and Initializing Motors and other items responsible for the \doxylink{namespacefrc_1_1robot_1_1subsystems_1_1_arm}{Arm}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_ac9b39c21e7ebe584007cbad87d482a4a}\index{frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}!setMotionControl@{setMotionControl}}
+\index{setMotionControl@{setMotionControl}!frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}}
+\doxysubsubsection{\texorpdfstring{setMotionControl()}{setMotionControl()}}
+{\footnotesize\ttfamily \label{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_ac9b39c21e7ebe584007cbad87d482a4a} 
+void frc.\+robot.\+subsystems.\+Arm.\+Arm\+Real.\+set\+Motion\+Control (\begin{DoxyParamCaption}\item[{double}]{position\+Rotations}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This method uses Motion Magic to move the arm smoothly to a specific position, considering the velocity and acceleration limits defined in the configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position\+Rotations} & The specific position that the arm would like to move to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfacefrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_i_o_aaf7cc9ddebeb695d69cfc9db6f8c2503}{frc.\+robot.\+subsystems.\+Arm.\+Arm\+IO}}.
+
+\Hypertarget{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_abeca75e6c1ebee1b3453952023640a55}\index{frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}!setPositionControl@{setPositionControl}}
+\index{setPositionControl@{setPositionControl}!frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}}
+\doxysubsubsection{\texorpdfstring{setPositionControl()}{setPositionControl()}}
+{\footnotesize\ttfamily \label{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_abeca75e6c1ebee1b3453952023640a55} 
+void frc.\+robot.\+subsystems.\+Arm.\+Arm\+Real.\+set\+Position\+Control (\begin{DoxyParamCaption}\item[{double}]{position\+Rotations}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This method uses a simple position control to move the arm to a specific position (in rotations). 
+
+It sets the desired position for both the leader and follower motors using the Position\+Voltage control mode. 
+\begin{DoxyParams}{Parameters}
+{\em position\+Rotations} & The desired position that the arm would like to go to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfacefrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_i_o_adf1427c6566fadd117bccf7ea426271d}{frc.\+robot.\+subsystems.\+Arm.\+Arm\+IO}}.
+
+\Hypertarget{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_aa8d50cdde822c9be7627e584661f11db}\index{frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}!stop@{stop}}
+\index{stop@{stop}!frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_aa8d50cdde822c9be7627e584661f11db} 
+void frc.\+robot.\+subsystems.\+Arm.\+Arm\+Real.\+stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the following Motors to a Netural Mode, which stops all the motors from running. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfacefrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_i_o_ab571ab01939c75fc708ffa9504b0e902}{frc.\+robot.\+subsystems.\+Arm.\+Arm\+IO}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_aab306ffc9856ebb72cbbaa44ed3a3e7d}\index{frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}!armEncoder@{armEncoder}}
+\index{armEncoder@{armEncoder}!frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}}
+\doxysubsubsection{\texorpdfstring{armEncoder}{armEncoder}}
+{\footnotesize\ttfamily \label{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_aab306ffc9856ebb72cbbaa44ed3a3e7d} 
+final CANcoder frc.\+robot.\+subsystems.\+Arm.\+Arm\+Real.\+arm\+Encoder}
+
+\Hypertarget{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_af8520851fca3d291debe8504dd8c02fa}\index{frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}!followerMotor@{followerMotor}}
+\index{followerMotor@{followerMotor}!frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}}
+\doxysubsubsection{\texorpdfstring{followerMotor}{followerMotor}}
+{\footnotesize\ttfamily \label{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_af8520851fca3d291debe8504dd8c02fa} 
+final Talon\+FX frc.\+robot.\+subsystems.\+Arm.\+Arm\+Real.\+follower\+Motor}
+
+\Hypertarget{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_a624537066e53dafb47f6ec25b776b294}\index{frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}!masterMotor@{masterMotor}}
+\index{masterMotor@{masterMotor}!frc.robot.subsystems.Arm.ArmReal@{frc.robot.subsystems.Arm.ArmReal}}
+\doxysubsubsection{\texorpdfstring{masterMotor}{masterMotor}}
+{\footnotesize\ttfamily \label{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_a624537066e53dafb47f6ec25b776b294} 
+final Talon\+FX frc.\+robot.\+subsystems.\+Arm.\+Arm\+Real.\+master\+Motor}
+
+
+
+Motor Decleration and Defintion Example -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---.java. 
+
+\hypertarget{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_autotoc_md0}{}\doxysubsubsection{\texorpdfstring{private final Talon\+FX motor = new Talon\+FX( k\+Motor\+Id );}{private final Talon\+FX motor = new Talon\+FX( k\+Motor\+Id );}}\label{classfrc_1_1robot_1_1subsystems_1_1_arm_1_1_arm_real_autotoc_md0}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/frc/robot/subsystems/\+Arm/\mbox{\hyperlink{_arm_real_8java}{Arm\+Real.\+java}}\end{DoxyCompactItemize}
